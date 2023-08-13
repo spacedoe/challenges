@@ -1,3 +1,42 @@
 * {
   box-sizing: border-box;
+  margin: 10px;
+}
+body {
+  background-color: rgb(231, 226, 226);
+  margin: 10px;
+  font-family: sans-serif;
+  
+  
+}
+article {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px; 
+  
+}
+img {
+  border-radius: 10px;
+}
+
+h2 {
+  text-transform: uppercase;
+
+}
+
+.repos {
+font-size: large;
+}
+
+.account {
+  color: gray;
+}
+
+.button {
+  color: rgb(0, 186, 248);
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  margin: 0;
+  
 }
