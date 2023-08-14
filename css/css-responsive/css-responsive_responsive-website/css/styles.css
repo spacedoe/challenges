@@ -263,7 +263,6 @@ width, etc. */
 
   .intro-text {
     align-self: flex-start;
-    
   }
 }
 
@@ -279,19 +278,37 @@ width, etc. */
     justify-content: space-around;
   }
 
-  .--forest {
-    min-width: 100vw;
+  .product-card.--forest {
+    max-width: 1200px;
+    min-width: 100%;
     min-height: 35vh;
+    box-shadow: none;
   }
-  
+
   .product-card,
   .intro-text {
     max-width: 45%;
   }
-  
 
   .intro-text {
-    align-self: flex-start; 
+    align-self: flex-start;
   }
-  
+
+  .main-header,
+  .navbar {
+    position: static;
+  }
+
+  .main-content {
+    padding: 0;
+    margin-top: 0;
+  }
+
+  header,
+  nav,
+  main,
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 }
