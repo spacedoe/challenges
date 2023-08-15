@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/styles.css" />
-    <title>Quiz App</title>
+    <title>Quiz App - Home</title>
   </head>
 
   <body>
@@ -14,23 +14,32 @@
 
     <main>
       <section class="main-card first">
-        <p class="card-question">What property flips the axes in flexbox?</p>
-        <p class="card-answer">Answer</p>
         <img class="bookmark-img" src="./img/bookmark.svg" alt="bookmark"
         width="30%" height="30%">
+        <p class="card-question">What command is used to delete a branch?</p>
+        <button class="card-answer-button">Answer</button>
+        <p class="card-answer" hidden>
+          <code>
+            git branch -d &lt;branch name&gt;
+          </code>
+        </p>
         <div class="main-tag">
-          <span class="html-tag">#html</span>
-          <span class="css-tag">#css</span>
+          <span class="tag tag-git">#git</span>
         </div>
       </section>
 
-      <section class="main-card first">
-        <p class="card-question">What attribute opens a link in a separate tab?</p>
-        <p class="card-answer">Answer</p>
-        <img class="bookmark-img" src="./img/bookmark.svg" alt="bookmark"
+      <section class="main-card second">
+        <img class="bookmark-img--selected" src="./img/bookmark-selected.svg" alt="bookmark"
         width="30%" height="30%">
+        <p class="card-question">What attribute opens a link in a separate tab?</p>
+        <button class="card-answer-button">Answer</button>
+        <p class="card-answer" hidden>
+          <code>
+            target=“_blank” 
+          </code>
+        </p>
         <div class="main-tag">
-          <span class="html-tag">#html</span>
+          <span class="tag tag-html">#html</span>
         </div>
     </main>
 
@@ -38,15 +47,15 @@
       <nav>
         <ul class="footer-nav">
           <li class="footer-link home">
-            <a href="#">
-                <img class="home-img" 
+            <a href="./index.html">
+                <img class="home-img--selected" 
                 src="./img/home-selected.svg" 
                 alt="home" width="60px" 
                 hight="60px"/>
             </a>
           </li>
           <li class="footer-link bookmarks">
-            <a href="#">
+            <a href="./bookmakrs.html">
                 <img
                 src="./img/bookmarks.svg"
                 alt="bookmarks"
