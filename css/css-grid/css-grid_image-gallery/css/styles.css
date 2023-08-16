@@ -27,7 +27,9 @@ body {
   
   /* Add styles to the grid container */
   display: grid;
-  grid-template: 1fr 1fr / 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  /* also grid-template: 1fr 1fr / 1fr 1fr; */
+  /* or grid-template-columns: 1fr 1fr; */
 }
 
 .teaser-grid__teaser {
