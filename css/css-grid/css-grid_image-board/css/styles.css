@@ -21,6 +21,12 @@ body {
   gap: 1rem;
   padding: 1rem;
   /* Add styles here */
+  max-width: 1000px;
+  grid-template-areas:
+  "ban app mel"
+  "pea app cau"
+  "pea tom cau"
+  ;
 }
 
 .image-board__image {
@@ -33,24 +39,30 @@ body {
 
 .image-board__image--1 {
   /* Add styles here */
+  grid-area: ban;
 }
 
 .image-board__image--2 {
   /* Add styles here */
+  grid-area: app;
 }
 
 .image-board__image--3 {
   /* Add styles here */
+  grid-area: mel;
 }
 
 .image-board__image--4 {
   /* Add styles here */
+  grid-area: pea;
 }
 
 .image-board__image--5 {
   /* Add styles here */
+  grid-area: tom;
 }
 
 .image-board__image--6 {
   /* Add styles here */
+  grid-area: cau;
 }
