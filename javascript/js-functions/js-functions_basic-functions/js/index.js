@@ -11,6 +11,12 @@ console.clear();
 // --v-- write your code here --v--
 
 // --^-- write your code here --^--
+const book = {
+  title: 'Master and Margarita',
+  author: 'Bulgakov',
+  rating: 8,
+  sales: 150,
+}
 
 /*
 2: Log all variables to the console, for example:
@@ -20,6 +26,8 @@ Author: Mario
 Rating: 4.2
 Sales: 120
 
+
+
 Increase the number of sales and change the rating of the book afterwards.
 Then log all variables to the console again.
 */
@@ -27,7 +35,10 @@ Then log all variables to the console again.
 // --v-- write your code here --v--
 
 // --^-- write your code here --^--
-
+LogBookData()
+book.sales = 200
+book.rating = 10
+LogBookData()
 /*
 3: This code is quite repetitive and hard to read.
  - Write a function called logBookData which console logs all
@@ -39,3 +50,14 @@ Then log all variables to the console again.
 // --v-- write your code here --v--
 
 // --^-- write your code here --^--
+
+function LogBookData() {
+  console.log(book)
+} 
+
+book.sales = 230;
+LogBookData()
+
+book.sales = 250;
+
+LogBookData()
