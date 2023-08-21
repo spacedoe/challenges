@@ -9,6 +9,10 @@ console.clear();
 */
 
 // --v-- write your code here --v--
+const title = 'Master and Margarita';
+const author = 'Bulgakov';
+let rating = 8;
+let numberOfSales = 150;
 
 // --^-- write your code here --^--
 
@@ -20,12 +24,17 @@ Author: Mario
 Rating: 4.2
 Sales: 120
 
+
+
 Increase the number of sales and change the rating of the book afterwards.
 Then log all variables to the console again.
 */
 
 // --v-- write your code here --v--
-
+logBookData()
+numberOfSales = numberOfSales + 50;
+rating = 9;
+logBookData()
 // --^-- write your code here --^--
 
 /*
@@ -39,3 +48,11 @@ Then log all variables to the console again.
 // --v-- write your code here --v--
 
 // --^-- write your code here --^--
+
+function logBookData() {
+  console.log(`${title}, ${author}, ${rating}, ${numberOfSales}`)
+} 
+
+numberOfSales = numberOfSales + 40;
+numberOfSales = numberOfSales + 60;
+logBookData()
