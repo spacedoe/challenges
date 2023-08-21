@@ -9,14 +9,12 @@ console.clear();
 */
 
 // --v-- write your code here --v--
+const title = 'Master and Margarita';
+const author = 'Bulgakov';
+let rating = 8;
+let numberOfSales = 150;
 
 // --^-- write your code here --^--
-const book = {
-  title: 'Master and Margarita',
-  author: 'Bulgakov',
-  rating: 8,
-  sales: 150,
-}
 
 /*
 2: Log all variables to the console, for example:
@@ -33,12 +31,12 @@ Then log all variables to the console again.
 */
 
 // --v-- write your code here --v--
-
+logBookData()
+numberOfSales = numberOfSales + 50;
+rating = 9;
+logBookData()
 // --^-- write your code here --^--
-LogBookData()
-book.sales = 200
-book.rating = 10
-LogBookData()
+
 /*
 3: This code is quite repetitive and hard to read.
  - Write a function called logBookData which console logs all
@@ -51,13 +49,10 @@ LogBookData()
 
 // --^-- write your code here --^--
 
-function LogBookData() {
-  console.log(book)
+function logBookData() {
+  console.log(`${title}, ${author}, ${rating}, ${numberOfSales}`)
 } 
 
-book.sales = 230;
-LogBookData()
-
-book.sales = 250;
-
-LogBookData()
+numberOfSales = numberOfSales + 40;
+numberOfSales = numberOfSales + 60;
+logBookData()
