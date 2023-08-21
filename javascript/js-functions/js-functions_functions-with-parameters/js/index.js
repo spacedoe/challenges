@@ -52,7 +52,8 @@ logSeparator(3)
 // --v-- write your code here --v--
 
 function logSeparator(number) {
-  console.log(`Exercise ${number}: -------------`)
+  console.log('-------------')
+  console.log(`Exercise ${number}:`)
 }
 
 // --^-- write your code here --^--
