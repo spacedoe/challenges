@@ -29,12 +29,12 @@
           <input type="date" name="birthday" id="birthday" />
         </fieldset>
   
-          <p>
+          <p id="personal-info">
             Can you tell us a little bit more? We want to annoy you with unwanted
             ads.
           </p>
   
-          <fieldset>
+          <fieldset aria-labelledby="personal-info">
             <legend>Further Information</legend>
 
             <label for="fav-colour">Favourite Colour:</label>
@@ -43,10 +43,10 @@
 
             <label for="favourite-pet">What's your favourite pet?</label>
             <select name="favorite-pet" id="favorite-pet">
-              <option value="00">--Please choose an option--</option>
-              <option value="01">a cat</option>
-              <option value="02">a dog</option>
-              <option value="03">a monkey</option>
+              <option value="choose">--Please choose an option--</option>
+              <option value="cat">a cat</option>
+              <option value="dog">a dog</option>
+              <option value="monkey">a monkey</option>
             </select>
 
           </fieldset>
