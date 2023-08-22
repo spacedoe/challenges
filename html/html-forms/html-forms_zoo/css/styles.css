@@ -60,3 +60,8 @@ legend {
   color: white;
   padding: 0.2rem;
 }
+
+.checkbox-section{
+  display: flex;
+
+}
