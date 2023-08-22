@@ -1,20 +1,20 @@
 // let data;
 // let data = null;
-// let data = 25;
+let data = 25;
 // let data = 'hello world!'
 // let data = false
-// let data = BigInt(9007199254740991);
+data = BigInt(9007199254740991);
 // let data = function(){};
 // let data = [1, 2, 3];
 
-let data = {
-    name: 'Alex',
-    age: 35
-}
+// let data = {
+//     name: 'Alex',
+//     age: 35
+// }
 
 const typeOfData = typeof data;
 
-console.log(typeOfData);
+// console.log(typeOfData);
 
 switch (typeOfData) {
   case "number":
