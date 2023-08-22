@@ -16,8 +16,8 @@
         Please let us know how we can support you with a11y issues.
       </p>
 
-      <form for="title">
-        <fieldset aria-describedby="title">
+      <form aria-labelledby="title">
+        <fieldset aria-describedby="description">
           <legend>Enter your information</legend>
           <label for="name-input">Name:</label>
           <input id="name-input" type="text" name="name-input" />
@@ -28,8 +28,8 @@
           <label for="color-input">Color you cannot see:</label>
           <input id="color-input" type="color" name="color-input" />
 
-          <label for="message-input">Your message:</label>
-          <textarea id="message-input" rows="7" placeholder="Leave us a message..." name="message-input"></textarea>
+          <label for="message-input">Leave us a message:</label>
+          <textarea id="message-input" rows="7" name="message-input"></textarea>
           <button type="submit">Submit</button>
         </fieldset>
       </form>
