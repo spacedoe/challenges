@@ -14,8 +14,11 @@ Hint: the HTML entity for the switch button is: &updownarrow
 */
 
 const firstInput = document.querySelector('[data-js="first-input"]');
+const secondInput = document.querySelector('[data-js="second-input"]');
 const uppercaseButton = document.querySelector('[data-js="button-uppercase"]');
 const lowercaseButton = document.querySelector('[data-js="button-lowercase"]');
+const switchButton = document.querySelector('[data-js="button-switch"]');
+console.log(switchButton);
 
 uppercaseButton.addEventListener("click", () => {
   firstInput.value = firstInput.value.toUpperCase();
@@ -23,4 +26,14 @@ uppercaseButton.addEventListener("click", () => {
 
 lowercaseButton.addEventListener("click", () => {
   firstInput.value = firstInput.value.toLowerCase();
+});
+
+switchButton.addEventListener("click", () => {
+  console.log("switch button clicked!");
+
+  const firstInputValue = firstInput.value;
+  const secondInputValue = secondInput.value;
+
+  firstInput.value = secondInputValue;
+  secondInput.value = firstInputValue;
 });
