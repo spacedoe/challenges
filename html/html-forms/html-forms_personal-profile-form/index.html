@@ -11,12 +11,15 @@
   </head>
   <body>
     <section>
+     <form>
       <h1>Create your Personal Profile</h1>
       <fieldset>
 
-        <p>We want to get to know you! Please enter your personal information.</p>
+        <p id="personal-info">
+          We want to get to know you! Please enter your personal information.
+        </p>
         
-        <fieldset>
+        <fieldset aria-labelledby="personal-info">
           <legend>Pesonal information</legend>
 
           <label for="first-name">First Name:</label>
@@ -29,12 +32,12 @@
           <input type="date" name="birthday" id="birthday" />
         </fieldset>
   
-          <p id="personal-info">
+          <p id="further-info">
             Can you tell us a little bit more? We want to annoy you with unwanted
             ads.
           </p>
   
-          <fieldset aria-labelledby="personal-info">
+          <fieldset aria-labelledby="further-info">
             <legend>Further Information</legend>
 
             <label for="fav-colour">Favourite Colour:</label>
@@ -54,6 +57,7 @@
           <button type="submit">Submit</button>
           
       </fieldset>
+     </form>
     </section>
   </body>
 </html>
