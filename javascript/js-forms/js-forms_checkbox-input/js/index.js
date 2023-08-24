@@ -27,6 +27,8 @@ hideSuccessMessage();
 
 // tos.removeAttribute('checked') // <--- doesn't work
 
+
+ 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
@@ -42,6 +44,7 @@ form.addEventListener("submit", (event) => {
   hideTosError();
   alert("Form submitted");
   showSuccessMessage();
+  form.reset()
 
   // --^-- write your code here --^--
 
