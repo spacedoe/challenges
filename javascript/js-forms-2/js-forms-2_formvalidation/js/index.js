@@ -9,4 +9,5 @@ form.addEventListener("submit", (event) => {
   const data = Object.fromEntries(formData);
 
   console.log(data);
+  console.log("form submitted!")
 });
