@@ -1,6 +1,6 @@
 # Context
 
-This PR aims to tackle [REPLACE_ME](https://REPLACE_ME.com).
+This PR aims to tackle the [REPLACE_ME] challenge (https://REPLACE_ME.com).
 
 # Changes
 
