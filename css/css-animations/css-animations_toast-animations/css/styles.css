@@ -21,14 +21,51 @@ body {
   border: none;
   font-size: 1.5rem;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  /* transition: transform 200ms ease-out, box-shadow 1s ease-in-out; */
 }
 
 .start-button:hover {
-  background-color: #f5521c;
+  background-color: #e5430f;;
   color: white;
+  transform: 0.5;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
     rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  /* animation: bounce 0.5s infinite; */
+  animation: jump 200ms infinite alternate;
+  /* animation: shake 0.4s ease-out; */
+  
+
 }
+
+/* @keyframes bounce {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+} */
+
+@keyframes jump {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+/* @keyframes shake {
+  0% {
+      transform: skewX(-10deg);
+  }
+  25% {
+      transform: skewX(10deg);
+  }
+  50% {
+      transform: skewX(-10deg);
+  }
+  75% {
+      transform: skewX(10deg);
+  }
+  100% {
+      transform: skewX(-10deg);
+  }
+} */
 
 .start-button:disabled {
   background-color: lightgrey;
