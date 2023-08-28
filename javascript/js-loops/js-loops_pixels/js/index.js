@@ -121,5 +121,30 @@ const pixelValues = [
     "#9bb9b7",
   ],
 ];
+// To access a value in a nested array:
+// console.log(pixelValues[0][0]);
 
 const canvas = document.querySelector('[data-js="canvas"]');
+
+for ( const array of pixelValues ) {
+  for (const value of array) {
+    console.log(value)
+
+    const pixel = document.createElement("div")
+    pixel.className = "pixel"
+    pixel.style.backgroundColor = value;
+
+    canvas.append(pixel)
+  }
+}
+
+// Alternative solution:
+
+// for (let i = 0; i < pixelValues.length; i++) {
+//   for (let j = 0; j < pixelValues[i].length; j++) {
+//     const pixel = document.createElement("div");
+//     pixel.classList.add("pixel");
+//     pixel.style.backgroundColor = pixelValues[i][j];
+//     canvas.append(pixel);
+//   }
+// }
