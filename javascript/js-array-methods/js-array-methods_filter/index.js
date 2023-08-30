@@ -41,7 +41,7 @@ const allCardsThatAreNotBookmarked = cards.filter((card) => {
 console.log(allCardsThatAreNotBookmarked)
 
 const allCardsWithTagsHTMLOrJSThatAreBookmarked = cards.filter((card) => {
-  return (card.isBookmarked && (card.tags.includes('html') || card.tags.includes('js')))
+  return card.isBookmarked && (card.tags.includes('html') || card.tags.includes('js'))
 });
 console.log(allCardsWithTagsHTMLOrJSThatAreBookmarked)
 
