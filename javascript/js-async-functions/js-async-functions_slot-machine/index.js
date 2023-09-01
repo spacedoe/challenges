@@ -2,6 +2,7 @@ import { Wheel } from "./components/Wheel/Wheel.js";
 import { SpinButton } from "./components/SpinButton/SpinButton.js";
 import { Machine } from "./components/Machine/Machine.js";
 import { Result } from "./components/Result/Result.js";
+import { getMaxCount } from "./utils/symbols.js";
 
 console.clear();
 
@@ -21,34 +22,44 @@ root.append(machine, spinButton, result);
 // This time the function is already defined as an async function. 🫡
 //                                      ↙️
 spinButton.addEventListener("click", async () => {
-  spinButton.disabled = true;
-
-  const symbol = await Promise.all(
-    [wheel1, wheel2, wheel3].map((wheel) => wheel.spin())
-
-    // same as:
-    // wheel1.spin()
-    // wheel2.spin()
-    // wheel3.spin()
-  );
-
-  symbol = getMaxCount(symbol);
-  const symbol1 = symbol
-  const symbol2 = symbol
-  const symbol3 = symbol 
-
-  if (symbol1 === symbol2 && symbol2 === symbol3){
-    return points = 100;
-  }
-
-  if (symbol1 === symbol2 && symbol2 !== symbol3){
-    return points = 10;
-  } 
-
-  if (symbol1 !== symbol2 && symbol2 !== symbol3) {
-    return points = 0;
-  }
-
+  try{
+    spinButton.disabled = true;
+    
+    const symbol = await Promise.all(
+      [wheel1, wheel2, wheel3].map((wheel) => wheel.spin())
+      
+      // same as:
+      // wheel1.spin()
+      // wheel2.spin()
+      // wheel3.spin()
+      );
+      console.log(symbol);
+      
+      const maxCount = getMaxCount(symbol);
+      console.log(maxCount);
+      
+      let points = 0;
+      if (maxCount === 3) {
+        points = 100;
+      } else if (maxCount === 2) {
+        points = 10;
+      } else {
+        points = 0;
+      }
+      
+      console.log(points);
+      
+      result.setResult(points);
+    } catch(err) {
+      result.setMachineChoked() 
+      
+    }
+    
+    
+    spinButton.disabled = false;
+});
+ 
+ 
   /**
    * Hint 1:
    * The wheel elements have a spin method that returns a promise.
@@ -92,8 +103,6 @@ spinButton.addEventListener("click", async () => {
    * even if an error was thrown.
    */
 
-  spinButton.disabled = false;
-});
 
 /**
  * Bonus hint:
