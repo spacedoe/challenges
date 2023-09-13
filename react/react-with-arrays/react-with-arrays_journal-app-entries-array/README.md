@@ -50,18 +50,18 @@ const entries = [
 
 ## Development
 
-### Local Development
+### CodeSandbox
 
-To work locally, please install the dependencies using `npm i` first.
+Select the "Browser" tab to view this project.
 
-Run `npm run start` to start a development server and open the displayed URL in a browser.
+### Local development
 
-Use `npm run test` to run the tests.
+To run project commands locally, you need to install the dependencies using `npm i` first.
 
-### Scripts
+You can then use the following commands:
 
-You can use the following commands:
+- `npm run start` to start the development server
+- `npm run build` to create a production build
+- `npm run test` to run the tests in watch mode (if available)
 
-- `npm run start` to start a development server
-- `npm run build` to build the project
-- `npm run test` to run the tests
+> 💡 This project requires a bundler. You can use `npm run start` to start the development server. You can then view the project in the browser at `http://localhost:3000`. The Live Preview Extension for Visual Studio Code will **not** work for this project.
