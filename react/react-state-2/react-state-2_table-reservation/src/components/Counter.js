@@ -1,7 +1,15 @@
 import { useState } from "react";
 
-export default function Counter() {
-  const [people, setPeople] = useState(0);
+export default function Counter({
+  onAddingPeople,
+  onSubstractingPeople,
+  count,
+}) {
+  
+  // used count and isDisabled variables to disable the button if the count of people goes below 0.
+  let isDisabled = false;
+  count <= 0 ? (isDisabled = true) : (isDisabled = false);
+
   return (
     <>
       <h2>How many people would you like to visit us with?</h2>
@@ -10,15 +18,16 @@ export default function Counter() {
           type="button"
           className="counter__button"
           aria-label="increment people count"
-          onClick={() => setPeople(people + 1)}
+          onClick={onAddingPeople}
         >
           +
         </button>
         <button
+          disabled={isDisabled}
           type="button"
           className="counter__button"
           aria-label="decrement people count"
-          onClick={() => setPeople(people - 1)}
+          onClick={onSubstractingPeople}
         >
           -
         </button>
