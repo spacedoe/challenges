@@ -4,18 +4,18 @@ import "./styles.css";
 export default function App() {
   return (
     <main>
-      <Button />
-      <Button />
-      <Button />
-      <Button />
+      <Button backgroundColor="beige">Click me!</Button>
+      <Button backgroundColor="grey">No, click me!</Button>
+      <Button backgroundColor="black">No, me!</Button>
+      <Button backgroundColor="pink">MEE MEE MEE!</Button>
     </main>
   );
 }
 
-function Button() {
+function Button({ children, backgroundColor }) {
   return (
-    <button className="button" type="button">
-      Click me!
+    <button className="button" type="button" style={{ backgroundColor }}>
+      {children}
     </button>
   );
 }
