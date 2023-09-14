@@ -4,25 +4,17 @@ import "./styles.css";
 export default function App() {
   return (
     <main>
-      <Button btnColor="red">
-        <p>Click me!</p>
-      </Button>
-      <Button btnColor="blue">
-        <p>No, click me!</p>
-      </Button>
-      <Button btnColor="green">
-        <p>No, me!</p>
-      </Button>
-      <Button btnColor="yellow">
-        <p>MEE MEE MEE!</p>
-      </Button>
+      <Button backgroundColor="beige">Click me!</Button>
+      <Button backgroundColor="grey">No, click me!</Button>
+      <Button backgroundColor="black">No, me!</Button>
+      <Button backgroundColor="pink">MEE MEE MEE!</Button>
     </main>
   );
 }
 
-function Button({ children, btnColor }) {
+function Button({ children, backgroundColor }) {
   return (
-    <button className={`button ${btnColor}`} type="button">
+    <button className="button" type="button" style={{ backgroundColor }}>
       {children}
     </button>
   );

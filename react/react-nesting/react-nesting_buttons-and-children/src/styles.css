@@ -18,20 +18,5 @@ main {
 
 .button {
   min-width: 30%;
-}
-
-.red {
-  background-color: red;
-}
-
-.blue {
-  background-color: blue;
-}
-
-.green {
-  background-color: green;
-}
-
-.yellow {
-  background-color: yellow;
+  padding: 8px;
 }
