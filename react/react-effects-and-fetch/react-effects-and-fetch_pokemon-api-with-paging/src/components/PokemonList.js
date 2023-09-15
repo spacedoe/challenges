@@ -25,7 +25,7 @@ export default function PokemonList() {
   }
 
   function loadPreviousPage() {
-    setCount(count === 0 ? 0 : count - 20 );
+    setCount(count > 0 ? count - 20 : 0);
   }
   console.log(count);
 
