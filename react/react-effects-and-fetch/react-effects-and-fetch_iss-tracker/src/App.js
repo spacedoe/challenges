@@ -15,9 +15,9 @@ export default function App() {
     const response = await fetch(
       "https://api.wheretheiss.at/v1/satellites/25544"
     );
-    const coords = await response.json()
+    const data = await response.json()
 
-    setCoords(coords)
+    setCoords({longitude: data.longitude, latitude: data.latitude})
   }
 
   useEffect(() => {
