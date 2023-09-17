@@ -1,5 +1,6 @@
 import "./Form.css";
 
+
 export default function Form({ onAddAnimal }) {
   function handleSubmit(event) {
     event.preventDefault();
