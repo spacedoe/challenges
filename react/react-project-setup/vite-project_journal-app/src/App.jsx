@@ -15,7 +15,6 @@ function App() {
     <Main>
       <EntryForm/>
       <EntriesSection/>
-
     </Main>
     <Footer>Journal App - 2023</Footer>
     
