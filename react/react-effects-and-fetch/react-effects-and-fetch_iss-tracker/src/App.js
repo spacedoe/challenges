@@ -15,19 +15,18 @@ export default function App() {
     const response = await fetch(
       "https://api.wheretheiss.at/v1/satellites/25544"
     );
-    const data = await response.json()
+    const data = await response.json();
 
-    setCoords({longitude: data.longitude, latitude: data.latitude})
+    setCoords({ longitude: data.longitude, latitude: data.latitude });
   }
 
   useEffect(() => {
     const intervalID = setInterval(getISSCoords, 5000);
-    
-    return () => {
-      clearInterval(intervalID)
-    }
 
-  }, [])
+    return () => {
+      clearInterval(intervalID);
+    };
+  }, []);
 
   return (
     <main>
