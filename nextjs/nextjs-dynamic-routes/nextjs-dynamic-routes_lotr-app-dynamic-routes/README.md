@@ -33,7 +33,7 @@ function getRandomElement(array) {
 
 ## Development
 
-### Local Development
+### Local Developme
 
 To work locally, please install the dependencies using `npm i` first.
 
