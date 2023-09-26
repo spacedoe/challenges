@@ -14,10 +14,18 @@ const finishLine = 200;
 export default function CarRace() {
   const [cars, setCars] = useState(initialCars);
 
+  console.log("cars:", cars);
   function moveCar(clickedCar) {
     const coveredDistance = getRandomDistance();
     console.log("clickedCar", clickedCar);
     console.log("coveredDistance", coveredDistance);
+    // const clickedCar = initialCars.map((car) => {car.emoji === car.emoji})
+    // console.log("My clicked Car:", clickedCar);
+    setCars(
+      // cars.map((car) => car.emoji !== clickedCar.emoji ? car : {...car,position: {x: car.position.x + coveredDistance, lastDistance: coveredDistance}}));
+
+
+      prevCars => prevCars.map((car) => car.emoji !== clickedCar.emoji ? car : {...car, position: {x: car.position.x + coveredDistance, lastDistance: coveredDistance}}));
   }
 
   const winner = cars.find((car) => car.position.x >= finishLine);
