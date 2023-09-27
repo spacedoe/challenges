@@ -5,7 +5,7 @@ import useSWR from "swr";
 const URL = "https://api.wheretheiss.at/v1/satellites/25544";
 
 export default function ISSTracker() {
-  // coords name asigned to data prop
+  // coords name assigned to data prop 
   const { data: coords, error, isLoading, mutate } = useSWR(URL);
   if (error) return <div>{error.message}</div>;
   if (isLoading) return <div>loading...</div>;
