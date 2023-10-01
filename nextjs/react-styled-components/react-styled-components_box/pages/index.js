@@ -1,5 +1,5 @@
 import BoxWithClassName from "../components/BoxWithClassName/BoxWithClassName.js";
-import BoxWithStyledComponents from "../components/BoxWithStyledComponents.js";
+import BoxWithStyledComponents, { StyledBox } from "../components/BoxWithStyledComponents.js";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -11,8 +11,8 @@ export default function HomePage() {
     <Container>
       <BoxWithClassName />
       <BoxWithClassName isBlack />
-      <BoxWithStyledComponents/>
-      <BoxWithStyledComponents isBlack={true}/>
+      <StyledBox/>
+      <StyledBox $isBlack={true}/>
     </Container>
   );
 }
