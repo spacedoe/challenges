@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import Link from "next/link";
 import Layout from "../components/Layout";
+import useSWR from "swr";
 
 export default function HomePage() {
+  
   return (
     <Layout>
       <h1>React Data Fetching: Star Wars</h1>
