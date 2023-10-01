@@ -8,14 +8,11 @@ import {
   Track,
 } from "./CarRace.styled";
 import { initialCars, getRandomDistance } from "../../utils/utils";
-import { Immer } from "immer";
-import { useImmer } from "use-immer";
-import { original } from "immer";
 
 const finishLine = 200;
 
 export default function CarRace() {
-  const [cars, updateCars] = useImmer(initialCars);
+  const [cars, setCars] = useState(initialCars);
 
   console.log("cars:", cars);
   function moveCar(clickedCar) {
@@ -23,11 +20,19 @@ export default function CarRace() {
     console.log("clickedCar", clickedCar);
     console.log("coveredDistance", coveredDistance);
 
-    updateCars((draft) => {
-      const carInDraft = draft.find((car) => original(car) === clickedCar);
-      carInDraft.position.x += coveredDistance;
-      carInDraft.position.lastDistance = coveredDistance;
-    });
+    setCars((prevCars) =>
+      prevCars.map((car) =>
+        car.emoji !== clickedCar.emoji
+          ? car
+          : {
+              ...car,
+              position: {
+                x: car.position.x + coveredDistance,
+                lastDistance: coveredDistance,
+              },
+            }
+      )
+    );
   }
 
   const winner = cars.find((car) => car.position.x >= finishLine);
