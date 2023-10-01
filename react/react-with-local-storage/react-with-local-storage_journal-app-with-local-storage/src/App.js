@@ -5,6 +5,7 @@ import EntryForm from "./components/EntryForm";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { uid } from "uid";
+import useLocalStorageState from "use-local-storage-state";
 
 const initialEntries = [
   {
@@ -37,15 +38,23 @@ const initialEntries = [
 ];
 
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
-  const [filter, setFilter] = useState("all"); // "all" or "favorites"
+  const [entries, setEntries] = useLocalStorageState("entries", {
+    defaultValue: initialEntries,
+  });
+  // const [filter, setFilter] = useState("all"); // "all" or "favorites"
 
+  const [filter, setFilter] = useLocalStorageState(
+    "filter",  { defaultValue: "favorites"}
+  ); // "all" or "favorites"
+
+  // if we want want to have "all" or "favorites" tabs opens on default, then we can place filter in local storage, if we don't need this functionallity, we can leave it as it is. 
   function handleAddEntry(newEntry) {
     const date = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
     });
     setEntries([{ id: uid(), date, ...newEntry }, ...entries]);
   }
+  const favoriteEntries = entries.filter((entry) => entry.isFavorite);
 
   function handleToggleFavorite(id) {
     setEntries(
@@ -63,7 +72,6 @@ function App() {
     setFilter("all");
   }
 
-  const favoriteEntries = entries.filter((entry) => entry.isFavorite);
 
   return (
     <div className="app">
