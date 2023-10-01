@@ -12,54 +12,54 @@ test("renders two input fields and a button", () => {
   render(<GameForm />);
 
   const input = screen.getAllByRole("textbox");
-  const button = screen.getByRole("button", { name: "Create game" });
-
   expect(input).toHaveLength(2);
+
+  const button = screen.getByRole("button");
   expect(button).toBeInTheDocument();
 });
 
 test("renders a form with the accessible name 'Create a new game'", () => {
   render(<GameForm />);
-  const formName = screen.getByRole("form", { name: "Create a new game" });
-  expect(formName).toBeInTheDocument();
+  const form = screen.getByRole("form", { name: "Create a new game" });
+  expect(form).toBeInTheDocument();
 });
 
 test("submits the correct form data when every field is filled out", async () => {
-  const onCreateGame = jest.fn();
+  const createGame = jest.fn();
   const user = userEvent.setup();
 
-  render(<GameForm onCreateGame={onCreateGame} />);
+  render(<GameForm onCreateGame={createGame} />);
 
-  const gameName = screen.getByRole("textbox", { name: "Name of game" });
-  const playersName = screen.getByRole("textbox", {
-    name: "Player names, separated by comma",
+  const nameOfGame = screen.getByRole("textbox", { name: "Name of game" });
+  const playerNames = screen.getByRole("textbox", {
+    name: /player names/i,
   });
 
-  const button = screen.getByRole("button", { type: "submit" });
+  const button = screen.getByRole("button");
 
-  await user.type(gameName, "New game");
-  await user.type(playersName, "John, Mary");
+  await user.type(nameOfGame, "New game");
+  await user.type(playerNames, "John, Mary");
   await user.click(button);
 
-  expect(onCreateGame).toHaveBeenCalledWith({
+  expect(createGame).toHaveBeenCalledWith({
     nameOfGame: "New game",
     playerNames: ["John", "Mary"],
   });
 });
 
 test("does not submit form if one input field is left empty", async () => {
-  const onCreateGame = jest.fn();
+  const createGame = jest.fn();
   const user = userEvent.setup();
 
-  render(<GameForm onCreateGame={onCreateGame} />);
+  render(<GameForm onCreateGame={createGame} />);
 
-  const gameName = screen.getByRole("textbox", { name: "Name of game" });
+  const nameOfGame = screen.getByRole("textbox", { name: "Name of game" });
 
-  const button = screen.getByRole("button", { type: "submit" });
+  const button = screen.getByRole("button");
 
-  await user.type(gameName, "New game");
+  await user.type(nameOfGame, "New game");
 
   await user.click(button);
 
-  expect(onCreateGame).not.toHaveBeenCalled();
+  expect(createGame).not.toHaveBeenCalled();
 });
