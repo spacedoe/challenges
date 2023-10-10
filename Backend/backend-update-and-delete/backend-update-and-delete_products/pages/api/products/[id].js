@@ -16,7 +16,22 @@ export default async function handler(request, response) {
   }
 
   if (request.method === "PUT") {
-    const productToUpdate = await Product.findByIdAndUpdate(id, updatedProduct)
-    response.status(200).json({ status: "Product successfully updated." })
+    await Product.findByIdAndUpdate(
+      id,
+      {
+        $set: request.body,
+      },
+      { new: true }
+    );
+    return response
+      .status(200)
+      .json({ status: "Product successfully updated." });
+  }
+
+  if (request.method === "DELETE") {
+    await Product.findByIdAndDelete(id);
+    return response
+      .status(200)
+      .json({ status: "Product successfully deleted." });
   }
 }

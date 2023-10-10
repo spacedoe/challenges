@@ -5,9 +5,10 @@ import { StyledLink } from "../Link/Link.styled";
 import Comments from "../Comments";
 import { useState } from "react";
 import { StyledButton } from "../Button/Button.styled";
+import ProductForm from "../ProductForm";
 
 export default function Product() {
-  const {isEditMode, setIsEditMode} = useState(false)
+  const [isEditMode, setIsEditMode] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
@@ -21,10 +22,10 @@ export default function Product() {
     return;
   }
 
-  async function handleEditProduct(event) {
+  async function handleEdit(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
-    const productData = object.fromEntries(formData);
+    const productData = Object.fromEntries(formData);
     const response = await fetch(`/api/products/${id}`, {
       method: "PUT",
       headers: {
@@ -35,20 +36,42 @@ export default function Product() {
 
     if (response.ok) {
       mutate();
+      setIsEditMode(false);
+    } else {
+      console.error(`Error: ${response.status}`);
     }
-    router.push("./")
+  }
+
+  async function handleDelete(id) {
+    const response = await fetch(`/api/products/${id}`, {
+      method: "DELETE",
+    });
+    if (response.ok) {
+      await response.json();
+      router.push("/");
+    } else {
+      console.error(`Error: ${response.status}`);
+    }
   }
 
   return (
-    <ProductCard>
-      <h2>{data.name}</h2>
-      <p>Description: {data.description}</p>
-      <p>
-        Price: {data.price} {data.currency}
-      </p>
-      {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
-      <StyledButton type="button" onClick={() => { setIsEditMode(!isEditMode); }}>Edit</StyledButton>
-      <StyledLink href="/">Back to all</StyledLink>
-    </ProductCard>
+    <>
+      {isEditMode && <ProductForm onSubmit={handleEdit} update />}
+      <ProductCard>
+        <h2>{data.name}</h2>
+        <p>Description: {data.description}</p>
+        <p>
+          Price: {data.price} {data.currency}
+        </p>
+        {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
+        <StyledButton type="button" onClick={() => setIsEditMode(!isEditMode)}>
+          {isEditMode ? "Close" : "Edit"}
+        </StyledButton>
+        <StyledButton type="button" onClick={() => handleDelete(id)}>
+          Delete
+        </StyledButton>
+        <StyledLink href="/">Back to all</StyledLink>
+      </ProductCard>
+    </>
   );
 }
