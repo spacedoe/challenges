@@ -21,7 +21,7 @@ export default function Product() {
     return;
   }
 
-  async function andleEditProduct(event) {
+  async function handleEditProduct(event) {
     event.preventDefault();
     const formData = new FormData(event.target);
     const productData = object.fromEntries(formData);
@@ -36,7 +36,7 @@ export default function Product() {
     if (response.ok) {
       mutate();
     }
-    
+    router.push("./")
   }
 
   return (
